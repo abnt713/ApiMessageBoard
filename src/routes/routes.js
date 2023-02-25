@@ -3,6 +3,7 @@ const router = express.Router()
 const MensagemController = require('../controllers/MensagemController')
 
 router.get('/mensagem', MensagemController.listarMensagens)
+router.get('/mensagem/:id', MensagemController.lerMensagem)
 
 router.post('/mensagem', MensagemController.adicionarMensagem)
 

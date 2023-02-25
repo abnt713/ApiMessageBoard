@@ -5,6 +5,17 @@ class MensagemController{
     listarMensagens(req, res){
         res.json(banco)
     }
+    lerMensagem(req, res) {
+        const id = req.params.id
+        const alvo = banco.find(mensagem => mensagem.id == id)
+        if (alvo == null) {
+            res.status(404)
+            res.end()
+            return
+        }
+
+        res.json(alvo)
+    }
     adicionarMensagem(req,res){
         const mensagem = {
             id:uuid.v4(),
